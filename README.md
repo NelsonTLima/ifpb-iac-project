@@ -52,32 +52,32 @@ Após o provisionamento da VM, o Ansible será invocado automaticamente pelo
 Vagrant para configurar o sistema operacional e instalar pacotes necessários.
 As seguintes atividades foram realizadas:
 
- [x] Realizar uma atualização completa no Sistema Operacional, incluindo os
+- [x] Realizar uma atualização completa no Sistema Operacional, incluindo os
  pacotes.
- [x] Alterar o Hostname para p01-Nelson
- [x] Criar dois usuários (optou-se por nome e outro sobrenome).
- [x] Configurar mensagem de saudação.
- [x] Permitir que usuários do grupo "ifpb" tenham acesso de root com o sudo.
- [x] Permitir apenas autenticação por chaves públicas.
- [x] Bloquear acesso ao root via SSH.
- [x] Permitir acesso apenas para usuários pertencentes ao grupo "acesso_ssh".
- [x] Gerar e configurar chaves publicas para os usuários criados no item 2.2.3
- [x] Utilizar os 3 discos para criar um VG chamado "dados".
- [x] Criar um LV chamado "sistema" com 15 Gb de tamanho.
- [x] Formatar o LV "sistema" no formato ext4.
- [x] Configurar a partição "sistema" para ser montada automaticamente no
+- [x] Alterar o Hostname para p01-Nelson
+- [x] Criar dois usuários (optou-se por nome e outro sobrenome).
+- [x] Configurar mensagem de saudação.
+- [x] Permitir que usuários do grupo "ifpb" tenham acesso de root com o sudo.
+- [x] Permitir apenas autenticação por chaves públicas.
+- [x] Bloquear acesso ao root via SSH.
+- [x] Permitir acesso apenas para usuários pertencentes ao grupo "acesso_ssh".
+- [x] Gerar e configurar chaves publicas para os usuários criados no item 2.2.3
+- [x] Utilizar os 3 discos para criar um VG chamado "dados".
+- [x] Criar um LV chamado "sistema" com 15 Gb de tamanho.
+- [x] Formatar o LV "sistema" no formato ext4.
+- [x] Configurar a partição "sistema" para ser montada automaticamente no
  diretório /dados ao iniciar o sistema.
- [x] Você deve realizar a configuração d inicialização da partição em
+- [x] Você deve realizar a configuração d inicialização da partição em
  `/etc/fstab`
- [x] Configurar o servidor de NFS para compartilhar o diretório/dados/nfs
+- [x] Configurar o servidor de NFS para compartilhar o diretório/dados/nfs
  com qualquer host da rede 192.168.57.0/24.
- [x] Configurar NFS para que permita escrita no diretório apenas para o
+- [x] Configurar NFS para que permita escrita no diretório apenas para o
  usuario `nfs-ifpb`.
- [x] Mapear automaticamente qualquer usuário remoto para o usuário ""nfs-ifpb"
- [x] Forçar o esvaziamento do buffer de memória para gravações imediatas no
+- [x] Mapear automaticamente qualquer usuário remoto para o usuário ""nfs-ifpb"
+- [x] Forçar o esvaziamento do buffer de memória para gravações imediatas no
  disco;
- [x] Remover shell do usuário "nfs-ifpb" para aumentar a segurança.
- [x] Todo usuário que acessar o sistema, deve ser adicional ao final do
+- [x] Remover shell do usuário "nfs-ifpb" para aumentar a segurança.
+- [x] Todo usuário que acessar o sistema, deve ser adicional ao final do
  arquivo /dados/nfs/acessos informações de data_hora; nome_login; tty;
  ip_remoto.
 
