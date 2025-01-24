@@ -1,0 +1,29 @@
+---
+- name: Install NFS
+  apt:
+    name:
+      - nfs-common
+      - nfs-kernel-server
+    state: present
+    update_cache: yes
+
+- name: Create sharing dir
+  file:
+    path: /dados/nfs
+    state: directory
+    owner: nfs-ifpb
+    group: root
+    mode: '0755'
+
+- name: Configure NFS export
+  lineinfile:
+    path: /etc/exports
+    line: "/dados/nfs 192.168.57.10/24(rw,sync,no_subtree_check)"
+
+- name: Export NFS dirs
+  command: exportfs -a
+
+- name: Restart NFS service
+  service:
+    name: nfs-kernel-server
+    state: restarted

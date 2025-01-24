@@ -1,0 +1,48 @@
+---
+- name: Set PubKeyAuthentication
+  lineinfile:
+    path: /etc/ssh/sshd_config
+    regexp: "^#PubkeyAuthentication"
+    line: "PubkeyAuthentication yes"
+    state: present
+
+- name: Unset PasswordAuthentication
+  lineinfile:
+    path: /etc/ssh/sshd_config
+    regexp: "^#PasswordAuthentication"
+    line: "PasswordAuthentication no"
+    state: present
+
+- name: Unset PermitEmptyPasswords
+  lineinfile:
+    path: /etc/ssh/sshd_config
+    regexp: "^#PermitEmptyPasswords"
+    line: "PermitEmptyPasswords no"
+    state: present
+
+- name: Unset PermitRootLogin
+  lineinfile:
+    path: /etc/ssh/sshd_config
+    regexp: "^PermitRootLogin"
+    line: "PermitRootLogin no"
+    state: present
+
+- name: Set SSH Banner Motd
+  lineinfile:
+    path: /etc/ssh/sshd_config
+    regexp: "^#Banner"
+    line: "Banner /etc/ssh/ssh_banner"
+    state: present
+
+- name: Create "ssh_banner" file
+  copy:
+    content: |
+      Acesso restrito apenas a pessoas com autorização expressa
+      seu acesso está sendo monitorado !!!
+    dest: /etc/ssh/ssh_banner
+    mode: '0644'
+
+- name: Restart SSH service
+  service:
+    name: ssh
+    state: restarted

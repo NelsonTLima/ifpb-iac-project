@@ -1,0 +1,21 @@
+---
+- name: Add log file to '/dados/nfs/acessos'
+  file:
+    path: /dados/nfs/acessos
+    state: touch
+    mode: '0666'
+
+- name: Copy Script to /etc
+  copy:
+    src: ./log-script.sh
+    dest: /etc/log-script.sh
+    owner: root
+    group: root
+    mode: '755'
+
+- name: Add script to etc/profile
+  lineinfile:
+    path: /etc/profile
+    line: '/etc/log-script.sh'
+    create: yes
+    state: present

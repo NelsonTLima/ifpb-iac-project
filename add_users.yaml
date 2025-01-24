@@ -1,0 +1,24 @@
+---
+- name: Add the user "Nelson"
+  user:
+    name: Nelson
+    shell: /bin/bash
+    groups: ifpb, acesso_ssh
+    generate_ssh_key: yes
+    ssh_key_bits: 2048
+    ssh_key_file: .ssh/id_rsa
+
+- name: Add the user "Lima"
+  user:
+    name: Lima
+    shell: /bin/bash
+    groups: ifpb, acesso_ssh
+    generate_ssh_key: yes
+    ssh_key_bits: 2048
+    ssh_key_file: .ssh/id_rsa
+
+- name: Add the user "nfs-ifpb"
+  user:
+    name: nfs-ifpb
+    shell: /usr/bin/noligin
+    groups: root

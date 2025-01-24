@@ -1,0 +1,39 @@
+---
+- name: install LVM
+  apt:
+    name: lvm2
+    state: present
+
+- name: Create a volume group on /dev/sdb, /dev/sdc, dev/sdd
+  lvg:
+    vg: dados
+    pvs:
+      - /dev/sdb
+      - /dev/sdc
+      - /dev/sdd
+
+- name: Create a logical volume of 15GB with disks /dev/sdb, /dev/sdc,/dev/sdd
+  lvol:
+    vg: dados
+    lv: sistema
+    size: 15g
+
+- name: Format a ext4 FileSystem
+  filesystem:
+    fstype: ext4
+    dev: /dev/dados/sistema
+
+- name: Configure mnt
+  mount:
+    path: /dados
+    src: /dev/dados/sistema
+    fstype: ext4
+    state: mounted
+
+- name: Mount LV in /dados
+  mount:
+    path: /dados
+    src: /dev/dados/sistema
+    fstype: ext4
+    opts: defaults
+    state: mounted

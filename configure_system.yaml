@@ -1,0 +1,37 @@
+---
+- name: Change Hostname
+  hostname:
+    name: "p01-Nelson"
+
+- name: Change /etc/hosts
+  ansible.builtin.replace:
+    path: /etc/hosts
+    regexp: '\Debian\b'
+    replace: "p01-Nelson"
+
+- name: Update Timezone
+  timezone:
+    name: "America/Recife"
+
+- name: Update apt cache
+  apt:
+    upgrade: dist
+
+- name: Update all packages to the latest version
+  apt:
+    upgrade: dist
+
+- name: Upgrade all packages to the latest version
+  apt:
+    name: "*"
+    state: latest
+
+- name: Remove all unnecessary packages
+  apt:
+    autoremove: yes
+    autoclean: yes
+
+- name: Update linux kernel
+  apt:
+    name: linux-image-generic
+    state: latest

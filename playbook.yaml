@@ -1,0 +1,30 @@
+---
+- name: Main Playbook
+  hosts: all
+  become: yes
+  tasks:
+
+    - name: Configure System
+      include: configure_system.yaml
+
+    - name: Add Groups
+      include: add_groups.yaml
+
+    - name: Add Users
+      include: add_users.yaml
+
+    - name: Configure SSH
+      include: configure_ssh.yaml
+
+    - name: Authorize Keys
+      include: authorized_keys.yaml
+
+    - name: Configure LVM
+      include: configure_lvm.yaml
+
+    - name: Configure NFS
+      include: configure_nfs.yaml
+
+    - name: Access Monitoring
+      include: access_log.yaml
+
