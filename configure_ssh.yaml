@@ -13,6 +13,13 @@
     line: "PasswordAuthentication no"
     state: present
 
+- name: sshd only permit users from acesso_ssh group
+  lineinfile:
+    path: etc/ssh/sshd_config
+    line: "AllowGroups acesso_ssh"
+    create: yes
+    state: present
+
 - name: Unset PermitEmptyPasswords
   lineinfile:
     path: /etc/ssh/sshd_config
