@@ -15,7 +15,7 @@
 
 - name: sshd only permit users from acesso_ssh group
   lineinfile:
-    path: etc/ssh/sshd_config
+    path: /etc/ssh/sshd_config
     line: "AllowGroups acesso_ssh"
     create: yes
     state: present
