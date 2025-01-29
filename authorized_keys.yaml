@@ -1,12 +1,12 @@
 ---
-- name: Set Authorized Key For user 'Nelson'
+- name: Set Authorized Key For user 'nelson'
   ansible.posix.authorized_key:
-    user: Nelson
+    user: nelson
     state: present
     key: "{{ lookup('file', './ssh_keys/nelson_rsa.pub') }}"
 
-- name: Set Authorized Key For user 'Lima'
+- name: Set Authorized Key For user 'nima'
   ansible.posix.authorized_key:
-    user: Lima
+    user: lima
     state: present
     key: "{{ lookup('file', './ssh_keys/lima_rsa.pub') }}"
