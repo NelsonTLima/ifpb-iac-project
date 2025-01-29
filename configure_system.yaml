@@ -1,7 +1,7 @@
 ---
 - name: Change Hostname
   hostname:
-    name: "p01-Nelson"
+    name: "p01-nelson"
 
 - name: Change /etc/hosts
   ansible.builtin.replace:
