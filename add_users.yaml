@@ -1,7 +1,7 @@
 ---
 - name: Add the user "Nelson"
   user:
-    name: Nelson
+    name: nelson
     shell: /bin/bash
     groups: ifpb, acesso_ssh
     generate_ssh_key: yes
@@ -10,7 +10,7 @@
 
 - name: Add the user "Lima"
   user:
-    name: Lima
+    name: lima
     shell: /bin/bash
     groups: ifpb, acesso_ssh
     generate_ssh_key: yes
