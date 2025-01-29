@@ -15,10 +15,20 @@
     group: root
     mode: '0755'
 
+- name: get nfs-ifpb UID
+  command: id -u nfs-ifpb
+  register: nfs_uid
+  changed_when: false
+
+- name: get nfs-ifpb GID
+  command: id -g nfs-ifpb
+  register: nfs_gid
+  changed_when: false
+
 - name: Configure NFS export
   lineinfile:
     path: /etc/exports
-    line: "/dados/nfs 192.168.57.10/24(rw,sync,no_subtree_check)"
+    line: "/dados/nfs 192.168.57.10/24(rw,sync,no_subtree_check,all_squash,anonuid={{ nfs_uid.stdout }},anongid={{ nfs_gid.stdout }})"
 
 - name: Export NFS dirs
   command: exportfs -a
