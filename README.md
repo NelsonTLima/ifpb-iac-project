@@ -86,19 +86,20 @@ As seguintes atividades foram realizadas:
 Primeiro será necessário colocar as chaves publicas dos usuários Nelson e Lima
 na pasta `ssh_keys` do projeto com os nomes `nelson_rsa.pub` ou `lima_rsa.pub`
 . Isso vai garantir acesso a quem detiver os pares privados dessas chaves.
-Foram criadas a título provisório os dois pares de chave e colocados na pasta,
+Foram criados dois pares de chave e colocados na pasta ```ssh_keys```,
 basta substitui-las com:
 
 ```bash
 cp ~/.ssh/id_rsa.pub ./ssh_keys/{user}_rsa.pub
 ```
-Sendo {user} ou `nelson` ou `lima`. O caminho contrário também é possível
-copiando a chave privada para o seu diretorio com as chaves ssh.
 
-Em seguida basta chamar:
+Sendo {user} ou "nelson" ou "lima".
+
+Ou pode-se acessar o ssh usando as chaves privadas que estão no diretório,
+basta utilizar o comando:
 
 ```bash
-vagrant up
+ssh -i ./ssh_keys/{user}_rsa {user}@192.168.57.10
 ```
 
 Que o Vagrant juntamente com o Ansible cuidarão de levantar toda essa
