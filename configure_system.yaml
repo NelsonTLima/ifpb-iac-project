@@ -7,19 +7,14 @@
   ansible.builtin.replace:
     path: /etc/hosts
     regexp: '\Debian\b'
-    replace: "p01-Nelson"
+    replace: "p01-nelson"
 
 - name: Update Timezone
   timezone:
     name: "America/Recife"
 
 - name: Update apt cache
-  apt:
-    upgrade: dist
-
-- name: Update all packages to the latest version
-  apt:
-    upgrade: dist
+  apt: update_cache=yes force_apt_get=yes
 
 - name: Upgrade all packages to the latest version
   apt:
@@ -30,8 +25,3 @@
   apt:
     autoremove: yes
     autoclean: yes
-
-- name: Update linux kernel
-  apt:
-    name: linux-image-generic
-    state: latest

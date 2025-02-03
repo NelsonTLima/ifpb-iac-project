@@ -5,7 +5,7 @@
     state: present
     key: "{{ lookup('file', './ssh_keys/nelson_rsa.pub') }}"
 
-- name: Set Authorized Key For user 'nima'
+- name: Set Authorized Key For user 'lima'
   ansible.posix.authorized_key:
     user: lima
     state: present

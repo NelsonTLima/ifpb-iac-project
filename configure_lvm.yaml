@@ -1,6 +1,6 @@
 ---
 - name: install LVM
-  apt:
+  package:
     name: lvm2
     state: present
 

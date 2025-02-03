@@ -5,26 +5,26 @@
   tasks:
 
     - name: Configure System
-      include: configure_system.yaml
+      include_tasks: configure_system.yaml
 
     - name: Add Groups
-      include: add_groups.yaml
+      include_tasks: add_groups.yaml
 
     - name: Add Users
-      include: add_users.yaml
+      include_tasks: add_users.yaml
 
     - name: Configure SSH
-      include: configure_ssh.yaml
+      include_tasks: configure_ssh.yaml
 
     - name: Authorize Keys
-      include: authorized_keys.yaml
+      include_tasks: authorized_keys.yaml
 
     - name: Configure LVM
-      include: configure_lvm.yaml
+      include_tasks: configure_lvm.yaml
 
     - name: Configure NFS
-      include: configure_nfs.yaml
+      include_tasks: configure_nfs.yaml
 
     - name: Access Monitoring
-      include: access_log.yaml
+      include_tasks: access_log.yaml
 

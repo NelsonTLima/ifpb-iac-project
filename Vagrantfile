@@ -2,7 +2,7 @@
 
 Vagrant.configure("2") do |config|
 
-  # P01-Nelson Configurations.
+  # p01-nelson Configurations.
   config.vm.define "p01-nelson" do |nelson|
     nelson.vm.box = "generic/debian12"
     nelson.vm.network "private_network", ip: "192.168.57.10"
@@ -24,7 +24,7 @@ Vagrant.configure("2") do |config|
     end
 
   end
-  # End of p01-Nelson configuraitons
+  # End of p01-nelson configuraitons
 
   # Running ansible from the Vagrant Host.
   config.vm.provision "ansible" do |ansible|
