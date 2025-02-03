@@ -1,6 +1,6 @@
 ---
 - name: Install NFS
-  package:
+  apt:
     name:
       - nfs-common
       - nfs-kernel-server
