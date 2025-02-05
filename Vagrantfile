@@ -4,7 +4,7 @@ Vagrant.configure("2") do |config|
 
   # p01-nelson Configurations.
   config.vm.define "p01-nelson" do |nelson|
-    nelson.vm.box = "generic/debian12"
+    nelson.vm.box = "debian/bookworm64"
     nelson.vm.network "private_network", ip: "192.168.57.10"
     nelson.vm.network "public_network", bridge: "wlp3s0"
 
